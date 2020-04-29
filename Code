@@ -1,0 +1,79 @@
+Esté é o Site que busq  uei a informação: 
+http://www.dbins.com.br/dica/validando-placas-de-veiculos-com-javascript
+
+Aqui tô validando 3 placas no portal colaborativo NOS FORMATOS ANTIGO E NOVO.
+
+//Início - Ronaldo Alves - 27/04/2020.
+  function Checa_placas(vPlate2,platf,vFreight3) {
+    
+//Verifica Obrigatoriedade
+    if (typeof freightOrderConfirmDriverDetailsPlateNumberTF2 !== "undefined"){    
+      if (!vPlate2){
+        return "Preenchimento de Placa Obrigatório"
+      } }
+    
+    if (typeof freightOrderConfirmDriverDetailsPlateNumberTF !== "undefined"){
+      if (!platf){
+        return "Preenchimento de Placa Obrigatório"
+      } }
+    
+    if (typeof Freight3 !== "undefined"){
+      if (!vFreight3){
+        return "Preenchimento de Placa Obrigatório"
+      } }
+//Valida Placa no Formato Novo Mercosul e Antigo
+    const regexPlacaMercosulCarro = /^[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}$/;
+    const regexPlacaAntiga = /^[a-zA-Z]{3}[0-9]{4}$/;
+    
+    if (typeof freightOrderConfirmDriverDetailsPlateNumberTF2 !== "undefined"){
+      if (vPlate2){
+     if(regexPlacaMercosulCarro.test(vPlate2)){
+       var vformatNovo = 'OK';
+       }
+     
+     if(regexPlacaAntiga.test(vPlate2)){
+       var vformatAntigo = 'OK';
+       }      
+      }
+      
+    if (!vformatNovo && !vformatAntigo){
+      return "Placa " + vPlate2 + " Inválida";
+    }
+    
+    }
+ //
+    if (typeof freightOrderConfirmDriverDetailsPlateNumberTF !== "undefined"){
+      if (platf){
+     if(regexPlacaMercosulCarro.test(platf)){
+       var vformatNovo2 = 'OK';
+       }
+     
+     if(regexPlacaAntiga.test(platf)){
+       var vformatAntigo2 = 'OK';
+       }      
+      }
+      
+    if (!vformatNovo2 && !vformatAntigo2){
+      return "Placa " + platf + " Inválida";
+    }
+    
+    }
+ //    
+    if (typeof Freight3 !== "undefined"){
+      if (vFreight3){
+     if(regexPlacaMercosulCarro.test(vFreight3)){
+       var vformatNovo3 = 'OK';
+       }
+     
+     if(regexPlacaAntiga.test(vFreight3)){
+       var vformatAntigo3 = 'OK';
+       }      
+      }
+      
+    if (!vformatNovo3 && !vformatAntigo3){
+      return "Placa " + vFreight3 + " Inválida";
+    }
+    
+    }
+  }
+//Fim - Ronaldo Alves - 27/04/2020.  
